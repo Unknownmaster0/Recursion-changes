@@ -68,7 +68,7 @@ void merge(int arr[], int start, int end)
         arr[arr_index++] = first[first_index++];
     }
     // if the second array is larger in length then first
-    while (first_index < size_of_first)
+    while (second_index < size_of_second)
     {
         arr[arr_index++] = second[second_index++];
     }
