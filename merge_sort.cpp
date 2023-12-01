@@ -6,6 +6,7 @@ Merge sort by dynamically allocating the new array
 
 */
 #include <iostream>
+#include <vector>
 using namespace std;
 
 void printArray(int arr[], int start,int end)
@@ -15,6 +16,42 @@ void printArray(int arr[], int start,int end)
         cout << arr[i] << " ";
     }
     cout << endl;
+}
+
+// this is also the way how we do the merge sort. 
+// **** More easier way to merge. *******
+void merge(vector<int>&arr, int low, int mid, int high)
+{
+    
+    // first array is from low to mid and the second array is from mid +1 to high
+    vector<int> temp;
+    
+    int i = low, j = mid +1;
+    while(i <= mid && j <=high)
+    {
+        if(arr[i] < arr[j]){
+            temp.push_back(arr[i]);
+            i++;
+        }
+            
+        else{
+            temp.push_back(arr[j]);
+            j++;
+        }
+    }
+    
+    while(i <= mid)
+        temp.push_back(arr[i++]);
+        
+    while(j <= high)
+        temp.push_back(arr[j++]);
+        
+        
+    int k = 0;
+    for(int i = low; i<=high; i++)
+        arr[i] = temp[k++];
+    
+    return;
 }
 
 

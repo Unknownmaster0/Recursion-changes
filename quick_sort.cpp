@@ -10,12 +10,41 @@ Quick sort is in place algorithm = it means that it doesn't make any copy of the
                                     This makes quick sort to save the memory of the heap.
 */
 #include <iostream>
+#include <vector>
 using namespace std;
 
 void display(int* arr,int start,int end){
     for(; start<= end; start++){
         cout<<arr[start]<<" ";
     }cout<<endl;
+}
+
+// this function is for finding the pivot Index.
+int findPivot(vector<int>&arr, int low, int high)
+{
+    int pivot = arr[low];
+    int left = low, right = high;
+    
+    while(left < right)
+    {
+        while(left <= high && arr[left] <= pivot )
+            left++;
+            
+        while(right >= low && arr[right] > pivot)
+            right --;
+            
+        if(left < right)
+            swap(arr[left],arr[right]);
+    }
+    
+    swap(arr[low],arr[right]);
+    
+    cout<<"low -> "<<low<<" highh -> "<<high<<endl;
+    for(int i = low; i<=high; i++)
+        cout<<arr[i]<<" ";
+    cout<<endl;
+    
+    return right;
 }
 
 int partition(int *arr, int start, int end)
