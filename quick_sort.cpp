@@ -27,10 +27,10 @@ int findPivot(vector<int>&arr, int low, int high)
     
     while(left < right)
     {
-        while(left <= high && arr[left] <= pivot )
+        while(left < high && arr[left] <= pivot )
             left++;
             
-        while(right >= low && arr[right] > pivot)
+        while(right > low && arr[right] > pivot)
             right --;
             
         if(left < right)
